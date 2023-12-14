@@ -72,7 +72,6 @@ This requires no arguement and simply returns the 22 calibration constants as a 
 Calibrates the romi directly from a file. Must have a file on the device named calibs.txt which must contain a list of the values in order
 
 
-
 Robot Runnings: 
 Both motors are set by default to their max speed. Rather then increase speed when needed, we decrease speed instead. 
 When one sensor starts to see black that means that that side of the robot is begining to cross the line. To fix this, the motor on that side slows down inducing a turn.  
