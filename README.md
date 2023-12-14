@@ -25,7 +25,7 @@ IMU: Bno055:
 <img width="976" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/98b543f3-d0fc-4c4d-b316-4f852099de4b">
 
 
-Electrical pinouts:
+#Electrical pinouts:
 
 <img width="523" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/e215202c-36c0-439c-9f3d-ba34b19bb6c5">
 
@@ -33,7 +33,7 @@ Electrical pinouts:
 
 
 
-IMU Driver Commands and Documentation:
+#IMU Driver Commands and Documentation:
 
 <img width="166" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/db3b533e-76b6-4583-9760-907e712edaac">
 
@@ -72,13 +72,16 @@ This requires no arguement and simply returns the 22 calibration constants as a 
 Calibrates the romi directly from a file. Must have a file on the device named calibs.txt which must contain a list of the values in order
 
 
-Robot Runnings: 
+#Robot Running: 
 Both motors are set by default to their max speed. Rather then increase speed when needed, we decrease speed instead. 
 When one sensor starts to see black that means that that side of the robot is begining to cross the line. To fix this, the motor on that side slows down inducing a turn.  
 This also means that for short gaps the robot continues straight at full speed. The short gap is not enough time for any significant drift to occur so it continues right on course after hitting the line again. 
 For the branch segments, both motors see black at the same time and slow the same amount meaning there is no turn induced and the robot continues straight. 
 
 https://github.com/danteazpilcueta/ME405Romi/assets/25334862/17d52362-d03a-4e68-ba87-83cca5522bbb
+
+
+
 
 
 
