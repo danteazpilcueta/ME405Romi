@@ -73,6 +73,13 @@ Calibrates the romi directly from a file. Must have a file on the device named c
 
 
 
+Robot Runnings: 
+Both motors are set by default to their max speed. Rather then increase speed when needed, we decrease speed instead. 
+When one sensor starts to see black that means that that side of the robot is begining to cross the line. To fix this, the motor on that side slows down inducing a turn.  
+This also means that for short gaps the robot continues straight at full speed. The short gap is not enough time for any significant drift to occur so it continues right on course after hitting the line again. 
+For the branch segments, both motors see black at the same time and slow the same amount meaning there is no turn induced and the robot continues straight. 
+
+https://github.com/danteazpilcueta/ME405Romi/assets/25334862/17d52362-d03a-4e68-ba87-83cca5522bbb
 
 
 
