@@ -34,6 +34,7 @@ Electrical pinouts:
 
 
 IMU Driver Commands and Documentation:
+
 <img width="166" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/db3b533e-76b6-4583-9760-907e712edaac">
 This command is used to initialize the IMU object. It requires an I2C object to be created and configured outside of the driver. The configured driver and the hardware address of the device must be passed through for initilization
 
