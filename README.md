@@ -80,7 +80,12 @@ For the branch segments, both motors see black at the same time and slow the sam
 
 https://github.com/danteazpilcueta/ME405Romi/assets/25334862/17d52362-d03a-4e68-ba87-83cca5522bbb
 
+# Wall Avoiding Protocol
+We use a single levered switch on the front of the robot to detect when we have run into the wall. Upon collision, the robot stops and backs up a small distance before turning and traveling a preprogrammed arc around the wall. Sensors are turned off during this time to prevent the robot from accidentally jumping onto another point on the track. Once the robot has traveled most of the path, the sensors are renabled to track back onto the line
 
+
+# Finish line detection
+The IMU gives us euler angles which can be used to find our angle on the x y plane. Our forward velocity can be calculated via the speed of the two motors and can be verified by integrating the acceleration reading from the IMU. The x direction is in line with the forward axis of the robot and as such our x acceleration will always be pointing in the direction of the angle of the robot. By utilizing a task that runs frequently, we can multiply our velocity by the time between runs to get an estimation of position. This position value can be broken into x and y components with our x y angle found from the euler angle reading. If run frequently enough, this will give us a good estimation of how far we have traveled in the x and y axis between runs. If we sum every change in position from the start we can get a reading on where the robot is currently with respect to where it started. Now we can input the x and y location of the finish line and once the robot has entered that zone we can tell it to stop and turn around 180 degrees. 
 
 
 
