@@ -85,7 +85,7 @@ The motors are controlled entirely through the feedback controllers. Any code in
 Both motors are set by default to their max speed. Rather then increase speed when needed, we decrease speed instead. 
 When one sensor starts to see black that means that that side of the robot is begining to cross the line. To fix this, the motor on that side slows down inducing a turn.  
 This also means that for short gaps the robot continues straight at full speed. The short gap is not enough time for any significant drift to occur so it continues right on course after hitting the line again. 
-For the branch segments, both motors see black at the same time and slow the same amount meaning there is no turn induced and the robot continues straight. 
+For the branch segments, both motors see black at the same time and slow the same amount meaning there is no turn induced and the robot continues straight. Only the 5 inner sensors of the 7 sensor array are being used. The 2 outer sensors were very sensitive to outside light and resulted in more erratic reads and as such they are ignored by the code. 
 
 https://github.com/danteazpilcueta/ME405Romi/assets/25334862/17d52362-d03a-4e68-ba87-83cca5522bbb
 
