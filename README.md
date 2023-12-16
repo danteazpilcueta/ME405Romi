@@ -99,6 +99,7 @@ The motors are controlled entirely through the feedback controllers. Any code in
 
 # Line Follower Calculations:
 The following equations were created via analysis of the robots movement due to the 2 motors. These equations were used to create plots of velocities to use for the 2 motors to best follow the lines. 
+
 <img width="1059" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/ceb8a77e-6098-447a-9602-12bfe8a636a3">
 
 <img width="1118" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/52f0e026-7309-4803-b1eb-178d0df3d7a6">
@@ -110,6 +111,7 @@ The reflectance sensors give us 5 different values for equally spaced out spots 
 
 Small values result in small turning adjustments but the adjustments scale up quickly as the value gets larger so we push significantly harder when we are further of the line. 
 This plot shows how that information is turned into 2 different speeds, one for each motor, that will result in the desired movement.
+
 <img width="624" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/610a628b-e5e5-478f-8fb3-92546b15e0a8">
 
 Each colored line corresponds to a different calibration setting allowing us to choose between multiple different behavior profiles. At a given value there are 2 corresponding lines of a single color which correspond to the values needed for each motor. Any time where our input is not zero we have are normal forward speed in both motors. This causes no turn and happens when the reflectance sensor does not see more of the line on one side. As soon as the sensors start to see more of the line on one side, we get a nonzero input. This results in 1 motor moving faster then the other which results in us turning in the appropriate direction. We selected the red curve as it performed the best. 
@@ -117,6 +119,7 @@ Each colored line corresponds to a different calibration setting allowing us to 
 The last plot shows forward velocity with respect to our weighted input from the sensors.
 
 <img width="552" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/9e2b1adc-830c-4ba1-803d-6c184dab7840">
+
 As the sensors start to give higher values, the speed falls off accordingly. This allows us to hit sharper turns without driving past them. We selected the red curve as the sharp drop off was needed in order for us to hit the sharp turns. 
 
 Using wolfram alpha, the equations were rearranged so that they could be solved for 3 calibration constants. These calibration constants are implemented in our code and by changing them we change the equation that governs the above plots. This allows us to tweak behavior in the code easily with few inputs. The cabration constants are shown below and are also documented in the code. 
