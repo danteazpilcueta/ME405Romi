@@ -8,9 +8,14 @@ Bump sensor:
 
 <img width="486" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/b0798f74-07a5-4cc0-90ae-6edb1e82e8f0">
 
-Reflectance Sensor:
+Reflectance Sensor front:
 
 <img width="621" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/dc6dce64-26e6-4e9a-9c4a-af41f4047346">
+
+Reflectance sensor rear:
+
+<img width="619" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/d88d9389-548d-4b5e-acdd-6889a7b75596">
+
 
 Romi:
 
