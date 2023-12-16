@@ -1,4 +1,5 @@
 # ME405Romi
+<img width="280" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/8e0b24fc-4d8f-4719-aa1f-3cbce11d7065">
 
 
 # Mechanical And Electrical Design:
