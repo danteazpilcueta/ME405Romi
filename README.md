@@ -79,6 +79,12 @@ This requires no arguement and simply returns the 22 calibration constants as a 
 
 Calibrates the romi directly from a file. Must have a file on the device named calibs.txt which must contain a list of the values in order
 
+# Tasks
+<img width="346" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/c00e6fc8-f153-462b-acf5-6ca0fc9e711d">
+There are 3 tasks that are being run together using cotask. Left motor and right motor update check and update the encoders and the closed loop function when they are run. They additionally used the closed loop function data to set the motors to the appropriate speed. Update robot reads the reflectance sensor array and uses our formulas to turn that into a speed for each motor that is then set as the reference value for the feedback loop controller
+
+
+
 # Motor Feedback Control
 The motors are controlled entirely through the feedback controllers. Any code in other sections that changes the motors speed does so by changing the velocity setpoint of the feedback loop itself. The feedback loops all incorporate proportional, integral and derivative control and the gains for each are chosen on initialization. Although derivative control is supported in the code, its gain is extremely low as the high variance in the error due to noisy sensors causes undesirable instability in line following. Motor feedback requires the initialization of an encoder object to compare measured speed to reference speed. 
 
