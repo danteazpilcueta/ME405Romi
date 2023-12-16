@@ -159,7 +159,8 @@ During these movements the robot moves slowly to ensure accuracy. Encoder ticks 
 # Finish line detection
 We have a secondary reflectance sensor mounted a few inches to the left of the romi. It is offset far enough that it cannot see the pronged paths and will only trigger when it sees the box for the finish line. If this sensor sees black then that means that the back of the robot has reached the finish line. The robot then moves a small amount forward and turns around. It will then find the path again and follow the line back. When starting the sensor will also see the line of the starting box. To prevent this from effecting the robot, the control pin is turned off for the begining part of the journey. Initially we planned to use the IMU euler angles and acceleration in order to integrate a forward position and break it into x and y components but we believe this to be a bit more reliable and less prone to estimation errors. 
 
-
+# Other Sources
+The cotask file is necessary to run the main program and is included in this repository. This was not created by us and was provided by Cal Poly SLO.
 
 
 
