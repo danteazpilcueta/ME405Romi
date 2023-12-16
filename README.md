@@ -85,6 +85,14 @@ Calibrates the romi directly from a file. Must have a file on the device named c
 There are 3 tasks that are being run together using cotask. Left motor and right motor update check and update the encoders and the closed loop function when they are run. They additionally used the closed loop function data to set the motors to the appropriate speed. Update robot reads the reflectance sensor array and uses our formulas to turn that into a speed for each motor that is then set as the reference value for the feedback loop controller
 
 
+# Finite State Machine
+Update robot is the only task that uses a FSM.
+
+<img width="512" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/613f9dd4-e185-4c3e-90be-8d40c8ac80ba">
+
+We could not get the finish line detection and wall navigation to work concurrently with the line follower so in the final code this is unimplemented. The intention was for state 2 to be triggered by the switch on the front of the robot and for state 3 to be triggered by a value above a certain threshold in the rear reflectance array. The wall trigger works but the state remains unimplemented. The rear reflectance array was too volitile to be a reliable way to detect the finish line as it was too far up above the play field. 
+
+
 
 # Motor Feedback Control
 The motors are controlled entirely through the feedback controllers. Any code in other sections that changes the motors speed does so by changing the velocity setpoint of the feedback loop itself. The feedback loops all incorporate proportional, integral and derivative control and the gains for each are chosen on initialization. Although derivative control is supported in the code, its gain is extremely low as the high variance in the error due to noisy sensors causes undesirable instability in line following. Motor feedback requires the initialization of an encoder object to compare measured speed to reference speed. 
