@@ -31,7 +31,8 @@ IMU: Bno055:
 
 <img width="520" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/aafda54f-8511-4a21-a191-a4919f4643b1">
 
-![image](https://github.com/danteazpilcueta/ME405Romi/assets/25334862/79bb1f37-ac8d-47bd-bac8-dbde9d5ab7e3)
+<img width="522" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/a8a71b60-9146-488e-b369-ef74da8c2ff0">
+
 
 ![image](https://github.com/danteazpilcueta/ME405Romi/assets/25334862/69f88d9a-24f6-4290-8bb1-4494dc8442b4)
 
