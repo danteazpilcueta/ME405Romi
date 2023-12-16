@@ -93,7 +93,9 @@ Calibrates the romi directly from a file. Must have a file on the device named c
 
 
 # Tasks
+
 <img width="346" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/c00e6fc8-f153-462b-acf5-6ca0fc9e711d">
+
 There are 3 tasks that are being run together using cotask. Left motor and right motor update check and update the encoders and the closed loop function when they are run. They additionally used the closed loop function data to set the motors to the appropriate speed. Update robot reads the reflectance sensor array and uses our formulas to turn that into a speed for each motor that is then set as the reference value for the feedback loop controller. Our code does not use task share variables and instead calls functions to set values when needed. For example, the updaterobot task can influence the updatemotor task because it can call the closed loop function to set the reference velocity. 
 
 
@@ -119,6 +121,7 @@ The following equations were created via analysis of the robots movement due to 
 <img width="1150" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/7ba5ef9c-8eeb-4035-83ec-7574e5695b5b">
 
 The reflectance sensors give us 5 different values for equally spaced out spots on the front of the robot. By weighting each value and compiling them together we created a single term that could be used to tell the motor how hard to go and which way to go. Below is a plot that shows how these distances were turned into values for the robot
+
 <img width="610" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/5481b0b2-f17f-4f0b-a80e-8684bbd8295a">
 
 Small values result in small turning adjustments but the adjustments scale up quickly as the value gets larger so we push significantly harder when we are further of the line. 
