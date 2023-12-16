@@ -1,5 +1,11 @@
 # ME405Romi
+
 <img width="280" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/8e0b24fc-4d8f-4719-aa1f-3cbce11d7065">
+
+# Challenge Statement
+This code is intended to allow the romi to autonomously travel from the start line to the finish line on the following track while following the black line. The robot must then make its way back to the start.
+
+<img width="508" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/681e7036-03b6-41a1-ad1a-17d01de2f549">
 
 
 # Mechanical And Electrical Design:
@@ -159,6 +165,9 @@ During these movements the robot moves slowly to ensure accuracy. Encoder ticks 
 
 # Finish line detection
 We have a secondary reflectance sensor mounted a few inches to the left of the romi. It is offset far enough that it cannot see the pronged paths and will only trigger when it sees the box for the finish line. If this sensor sees black then that means that the back of the robot has reached the finish line. The robot then moves a small amount forward and turns around. It will then find the path again and follow the line back. When starting the sensor will also see the line of the starting box. To prevent this from effecting the robot, the control pin is turned off for the begining part of the journey. Initially we planned to use the IMU euler angles and acceleration in order to integrate a forward position and break it into x and y components but we believe this to be a bit more reliable and less prone to estimation errors. 
+
+# Return Journey
+To return back to the starting position, our robot simply follows the line back the way it came. It uses the same code and protocol on the way back. 
 
 # Other Sources
 The cotask file is necessary to run the main program and is included in this repository. This was not created by us and was provided by Cal Poly SLO.
