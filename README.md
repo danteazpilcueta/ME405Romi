@@ -112,7 +112,17 @@ We could not get the finish line detection and wall navigation to work concurren
 The motors are controlled entirely through the feedback controllers. Any code in other sections that changes the motors speed does so by changing the velocity setpoint of the feedback loop itself. The feedback loops all incorporate proportional, integral and derivative control and the gains for each are chosen on initialization. Although derivative control is supported in the code, its gain is extremely low as the high variance in the error due to noisy sensors causes undesirable instability in line following. Motor feedback requires the initialization of an encoder object to compare measured speed to reference speed. 
 
 # Line Follower Calculations:
-The following equations were created via analysis of the robots movement due to the 2 motors. These equations were used to create plots of velocities to use for the 2 motors to best follow the lines. 
+
+An initial analysis of the robots movements due to the 2 motors is shown below.
+
+<img width="557" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/8fda92d9-9235-49a8-9c6a-632328c449e1">
+
+<img width="439" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/0c4d2504-b133-4225-8e2a-97a82b9de07e">
+
+<img width="498" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/af905978-afe8-4db4-b6cd-7d55f7ccc87a">
+
+
+The following equations were created via further analysis of the robots movement due to the 2 motors and implemented via wolfram alpha. These equations were used to create plots of velocities to use for the 2 motors to best follow the lines. 
 
 <img width="1059" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/ceb8a77e-6098-447a-9602-12bfe8a636a3">
 
