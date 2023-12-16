@@ -87,7 +87,7 @@ Calibrates the romi directly from a file. Must have a file on the device named c
 
 # Tasks
 <img width="346" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/c00e6fc8-f153-462b-acf5-6ca0fc9e711d">
-There are 3 tasks that are being run together using cotask. Left motor and right motor update check and update the encoders and the closed loop function when they are run. They additionally used the closed loop function data to set the motors to the appropriate speed. Update robot reads the reflectance sensor array and uses our formulas to turn that into a speed for each motor that is then set as the reference value for the feedback loop controller
+There are 3 tasks that are being run together using cotask. Left motor and right motor update check and update the encoders and the closed loop function when they are run. They additionally used the closed loop function data to set the motors to the appropriate speed. Update robot reads the reflectance sensor array and uses our formulas to turn that into a speed for each motor that is then set as the reference value for the feedback loop controller. Our code does not use task share variables and instead calls functions to set values when needed. For example, the updaterobot task can influence the updatemotor task because it can call the closed loop function to set the reference velocity. 
 
 
 # Finite State Machine
