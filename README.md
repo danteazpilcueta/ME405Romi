@@ -155,14 +155,13 @@ Using wolfram alpha, the equations were rearranged so that they could be solved 
 
 # Robot Running and Line Following Protocol: 
 Both motors are set by default to their max speed. Rather then increase speed when needed, we decrease speed instead. 
-When one sensor starts to see black that means that that side of the robot is begining to cross the line. To fix this, the motor on that side slows down inducing a turn.  
-This also means that for short gaps the robot continues straight at full speed. The short gap is not enough time for any significant drift to occur so it continues right on course after hitting the line again. 
-For the branch segments, both motors see black at the same time and slow the same amount meaning there is no turn induced and the robot continues straight. Only the 5 inner sensors of the 7 sensor array are being used. The 2 outer sensors were very sensitive to outside light and resulted in more erratic reads and as such they are ignored by the code. 
+When one sensor starts to see black that means that that side of the robot is begining to cross the line. To fix this, the motor on that side slows down inducing a turn. The amount it slows down is not directly proportional to the amount of black seen and is calculated via the formulas shown above. This method also assures that for short gaps the robot continues straight at full speed. The short gap is not enough time for any significant drift to occur so it continues right on course after hitting the line again. 
+For the branch segments, the weighted input value balances out resulting in neither motor slowing down. As neither motor slows down, we simply move forward past the branch. Only the 5 inner sensors of the 7 sensor array are being used. The 2 outer sensors were very sensitive to outside light and resulted in more erratic reads and as such they are ignored by the code. 
 
 https://github.com/danteazpilcueta/ME405Romi/assets/25334862/17d52362-d03a-4e68-ba87-83cca5522bbb
 
 # Wall Avoiding Protocol
-We use a single levered switch on the front of the robot to detect when we have run into the wall. Upon collision, the robot stops and backs up a small distance before turning and traveling a preprogrammed arc around the wall. Sensors are turned off during this time to prevent the robot from accidentally jumping onto another point on the track. Once the robot has traveled most of the path, the sensors are renabled to track back onto the line. In the video below this is shown. The movements after collision are hardcoded and have not been adjusted to most efficiently manuever around the box. 
+We use a single levered switch on the front of the robot to detect when we have run into the wall. Upon collision, the robot stops and backs up a small distance before turning and traveling a preprogrammed arc around the wall. Upon collision, we switch to a wall navigation state which implements these preprogrammed movements. In the video below this is shown. The movements after collision are hardcoded and have not been adjusted to most efficiently manuever around the box. 
 
 
 https://github.com/danteazpilcueta/ME405Romi/assets/25334862/66551163-b3ae-472f-b0eb-9130f963eb91
@@ -177,7 +176,7 @@ During these movements the robot moves slowly to ensure accuracy. Encoder ticks 
 
 
 # Finish line detection
-We have a secondary reflectance sensor mounted a few inches to the left of the romi. It is offset far enough that it cannot see the pronged paths and will only trigger when it sees the box for the finish line. If this sensor sees black then that means that the back of the robot has reached the finish line. The robot then moves a small amount forward and turns around. It will then find the path again and follow the line back. When starting the sensor will also see the line of the starting box. To prevent this from effecting the robot, the control pin is turned off for the begining part of the journey. Initially we planned to use the IMU euler angles and acceleration in order to integrate a forward position and break it into x and y components but we believe this to be a bit more reliable and less prone to estimation errors. 
+We have a secondary reflectance sensor mounted a few inches to the left of the romi. It is offset far enough that it cannot see the branched paths and will only trigger when it sees the box for the finish line. If this sensor sees black then that means that the back of the robot has reached the finish line. The robot then moves a small amount forward and turns around. It will then find the path again and follow the line back. When starting the sensor will also see the line of the starting box. To prevent this from effecting the robot, the control pin is turned off for the begining part of the journey. Initially we planned to use the IMU euler angles and acceleration in order to integrate a forward position and break it into x and y components but we believe this to be a bit more reliable and less prone to estimation errors. 
 
 # Return Journey
 To return back to the starting position, our robot simply follows the line back the way it came. It uses the same code and protocol on the way back. 
