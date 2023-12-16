@@ -91,7 +91,18 @@ For the branch segments, both motors see black at the same time and slow the sam
 https://github.com/danteazpilcueta/ME405Romi/assets/25334862/17d52362-d03a-4e68-ba87-83cca5522bbb
 
 # Wall Avoiding Protocol
-We use a single levered switch on the front of the robot to detect when we have run into the wall. Upon collision, the robot stops and backs up a small distance before turning and traveling a preprogrammed arc around the wall. Sensors are turned off during this time to prevent the robot from accidentally jumping onto another point on the track. Once the robot has traveled most of the path, the sensors are renabled to track back onto the line
+We use a single levered switch on the front of the robot to detect when we have run into the wall. Upon collision, the robot stops and backs up a small distance before turning and traveling a preprogrammed arc around the wall. Sensors are turned off during this time to prevent the robot from accidentally jumping onto another point on the track. Once the robot has traveled most of the path, the sensors are renabled to track back onto the line. In the video below this is shown. The movements after collision are hardcoded and have not been adjusted to most efficiently manuever around the box. 
+
+
+https://github.com/danteazpilcueta/ME405Romi/assets/25334862/66551163-b3ae-472f-b0eb-9130f963eb91
+
+This wall detection and avoidance code was not implemented into the rest of the code in time for the demo. It is included below to show the method used.
+
+<img width="544" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/f3e34b48-8463-4fe6-ba4d-8de7ec8aa016">
+<img width="587" alt="image" src="https://github.com/danteazpilcueta/ME405Romi/assets/25334862/129f91be-f254-4de2-8f35-05c2c41ebb74">
+
+During these movements the robot moves slowly to ensure accuracy. Encoder ticks are counted to get a measurement of how far we have turned and moved to allow us to choose movements that get us around the box. 
+
 
 
 # Finish line detection
